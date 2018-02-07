@@ -1,11 +1,11 @@
-var React = require('react');
-var PropTypes = require('prop-types');
-var Layout = require('./layout');
+import React from 'react';
+import PropTypes from 'prop-types';
+import Layout from './layout';
 
 // Contrived example to show how one might use Flow type annotations
 function countTo(n: number): string {
-  var a = [];
-  for (var i = 0; i < n; i++) {
+  const a = [];
+  for (let i = 0; i < n; i++) {
     a.push(i + 1);
   }
   return a.join(', ');
@@ -13,10 +13,11 @@ function countTo(n: number): string {
 
 class Index extends React.Component {
   render() {
+    const {title} = this.props;
     return (
-      <Layout title={this.props.title}>
-        <h1>{this.props.title}</h1>
-        <p>Welcome to {this.props.title}</p>
+      <Layout title={title}>
+        <h1>{title}</h1>
+        <p>Welcome to {title}</p>
         <p>
           I can count to 10:
           {countTo(10)}

@@ -2,19 +2,19 @@
  * Module dependencies.
  */
 
-var express = require('express');
-var routes = require('./routes');
-var user = require('./routes/user');
-var http = require('http');
-var path = require('path');
-var errorHandler = require('errorhandler');
-var logger = require('morgan');
+const express = require('express');
+const routes = require('./routes');
+const user = require('./routes/user');
+const http = require('http');
+const path = require('path');
+const errorHandler = require('errorhandler');
+const logger = require('morgan');
 
 // This should refer to the local React and gets installed via `npm install` in
 // the example.
-var reactViews = require('express-react-views');
+const reactViews = require('express-react-views');
 
-var app = express();
+const app = express();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -25,7 +25,7 @@ app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
-if ('development' == app.get('env')) {
+if ('development' === app.get('env')) {
   app.use(errorHandler());
 }
 
@@ -35,6 +35,6 @@ app.locals.qaz = 'qut';
 app.get('/', routes.index);
 app.get('/users', user.list);
 
-http.createServer(app).listen(app.get('port'), function() {
+http.createServer(app).listen(app.get('port'), () => {
   console.log('Express server listening on port ' + app.get('port'));
 });

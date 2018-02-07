@@ -1,12 +1,13 @@
-var React = require('react');
-var PropTypes = require('prop-types');
+import React from 'react';
+import PropTypes from 'prop-types';
 
 class Layout extends React.Component {
   render() {
+    const {title, children} = this.props;
     return (
       <html>
         <head>
-          <title>{this.props.title}</title>
+          <title>{title}</title>
           <link rel="stylesheet" href="/stylesheets/style.css" />
           <script
             dangerouslySetInnerHTML={{
@@ -19,7 +20,7 @@ class Layout extends React.Component {
             }}
           />
         </head>
-        <body>{this.props.children}</body>
+        <body>{children}</body>
       </html>
     );
   }
