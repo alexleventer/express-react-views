@@ -1,8 +1,8 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var Content = require('./Content');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Content from './Content';
 
-module.exports = function(data, containerId) {
-  var container = document.getElementById(containerId || 'content');
+export default (data, containerId) => {
+  const container = document.getElementById(containerId || 'content');
   ReactDOM.render(<Content {...data} />, container);
 };

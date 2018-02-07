@@ -5,17 +5,16 @@
   "author": "Chris Johnson <tenorviol@yahoo.com>",
   "private": true,
   "scripts": {
-    "start":
-      "browserify -t babelify views/main.js --standalone main -o public/main.js  && node app.js"
+    "start": "browserify -t babelify views/main.js --standalone main -o public/main.js  && node app.js"
   },
   "dependencies": {
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "babelify": "^7.3.0",
-    "browserify": "^14.3.0",
-    "express": "^4.15.3",
+    "babelify": "^8.0.0",
+    "browserify": "^15.2.0",
+    "express": "^4.16.2",
     "express-react-views": "file:../../",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   }
 }

@@ -1,12 +1,13 @@
-var React = require('react');
+import React from 'react';
 
 class TodoList extends React.Component {
   render() {
-    var i = 0;
-    var createItem = function(itemText) {
+    const {items} = this.props;
+    let i = 0;
+    const createItem = itemText => {
       return <li key={i++}>{itemText}</li>;
     };
-    return <ul>{this.props.items.map(createItem)}</ul>;
+    return <ul>{items.map(createItem)}</ul>;
   }
 }
 
@@ -22,15 +23,16 @@ class TodoApp extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    var nextItems = this.state.items.concat([this.state.text]);
-    var nextText = '';
+    const nextItems = this.state.items.concat([this.state.text]);
+    const nextText = '';
     this.setState({items: nextItems, text: nextText});
   }
   render() {
+    const {items, text} = this.state;
     return (
       <div className="container">
         <h3>TODO List</h3>
-        <TodoList items={this.state.items} />
+        <TodoList items={items} />
         <form className="form-inline" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <input
@@ -38,12 +40,12 @@ class TodoApp extends React.Component {
               className="form-control"
               placeholder="Write task"
               onChange={this.onChange}
-              value={this.state.text}
+              value={text}
             />
             &nbsp;
           </div>
           <button className="btn btn-primary">
-            {'Add #' + (this.state.items.length + 1)}
+            {'Add #' + (items.length + 1)}
           </button>
         </form>
       </div>
@@ -51,4 +53,4 @@ class TodoApp extends React.Component {
   }
 }
 
-module.exports = TodoApp;
+export default TodoApp;

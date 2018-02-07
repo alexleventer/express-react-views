@@ -1,13 +1,13 @@
-var React = require('react');
-var ReactDOMServer = require('react-dom/server');
-var Content = require('./Content');
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import Content from './Content';
 
 class Html extends React.Component {
   render() {
-    var data = this.props.data;
+    const {data} = this.props;
 
     // render the content as a dynamic react component
-    var contentHtml = ReactDOMServer.renderToString(<Content {...data} />);
+    const contentHtml = ReactDOMServer.renderToString(<Content {...data} />);
 
     /**
      * re-render the content as json,
@@ -47,7 +47,7 @@ class Html extends React.Component {
      * If avoidance is impossible,
      * know what you are doing and good luck.
      */
-    var initScript =
+    const initScript =
       'main(' + JSON.stringify(data).replace(/script/g, 'scr"+"ipt') + ')';
 
     return (
@@ -70,4 +70,4 @@ class Html extends React.Component {
   }
 }
 
-module.exports = Html;
+export default Html;
