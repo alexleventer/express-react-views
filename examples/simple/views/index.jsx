@@ -31,4 +31,4 @@ Index.propTypes = {
   title: PropTypes.string,
 };
 
-module.exports = Index;
+export default Index;

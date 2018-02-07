@@ -30,4 +30,4 @@ Layout.propTypes = {
   title: PropTypes.string,
 };
 
-module.exports = Layout;
+export default Layout;
